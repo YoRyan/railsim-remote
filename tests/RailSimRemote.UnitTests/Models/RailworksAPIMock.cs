@@ -1,6 +1,4 @@
-﻿using RailSimRemote.Models;
-
-namespace RailSimRemote.Models.Tests
+﻿namespace RailSimRemote.Models.Tests
 {
     class RailworksAPIMock : IRailworksAPI
     {

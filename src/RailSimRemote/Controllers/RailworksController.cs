@@ -6,11 +6,6 @@ using RailSimRemote.Models;
 
 namespace RailSimRemote.Controllers
 {
-    public struct BriefControlDescription
-    {
-        public float Minimum;
-        public float Maximum;
-    }
     public class RailworksController : ApiController
     {
         [ActionName("Loco")]

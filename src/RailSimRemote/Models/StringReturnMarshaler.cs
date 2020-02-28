@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace RailSimRemote.Models
 {
-    public class StringReturnMarshaler : ICustomMarshaler
+    class StringReturnMarshaler : ICustomMarshaler
     {
         private static StringReturnMarshaler static_instance;
         public void CleanUpManagedData(object ManagedObj) {}

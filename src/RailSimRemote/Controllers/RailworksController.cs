@@ -16,14 +16,14 @@ namespace RailSimRemote.Controllers
         [ActionName("Loco")]
         public LocoName GetLoco()
         {
-            return RailworksData.GetLoco();
+            return RailworksStatics.GameData.GetLoco();
         }
 
         [ActionName("Controls")]
         public Dictionary<string, BriefControlDescription> GetControls()
         {
             var result = new Dictionary<string, BriefControlDescription>();
-            foreach (KeyValuePair<string, ControlDescription> entry in RailworksData.GetControls())
+            foreach (KeyValuePair<string, ControlDescription> entry in RailworksStatics.GameData.GetControls())
             {
                 result[entry.Key] = new BriefControlDescription
                 {
@@ -38,14 +38,14 @@ namespace RailSimRemote.Controllers
         [ActionName("Control")]
         public float GetControl(string name)
         {
-            return RailworksData.GetControlValue(name);
+            return RailworksStatics.GameData.GetControlValue(name);
         }
 
         [HttpPut]
         [ActionName("Control")]
         public void PutControl(string name, float value)
         {
-            RailworksData.SetControlValue(name, value);
+            RailworksStatics.GameData.SetControlValue(name, value);
         }
 
         [ActionName("Virtual")]
@@ -55,23 +55,23 @@ namespace RailSimRemote.Controllers
             switch (name)
             {
                 case "Latitude":
-                    return RailworksAPI.GetControllerValue(400, getCurrent);
+                    return RailworksStatics.Api.GetControllerValue(400, getCurrent);
                 case "Longitude":
-                    return RailworksAPI.GetControllerValue(401, getCurrent);
+                    return RailworksStatics.Api.GetControllerValue(401, getCurrent);
                 case "Fuel":
-                    return RailworksAPI.GetControllerValue(402, getCurrent);
+                    return RailworksStatics.Api.GetControllerValue(402, getCurrent);
                 case "Tunnel":
-                    return RailworksAPI.GetControllerValue(403, getCurrent);
+                    return RailworksStatics.Api.GetControllerValue(403, getCurrent);
                 case "Gradient":
-                    return RailworksAPI.GetControllerValue(404, getCurrent);
+                    return RailworksStatics.Api.GetControllerValue(404, getCurrent);
                 case "Heading":
-                    return RailworksAPI.GetControllerValue(405, getCurrent);
+                    return RailworksStatics.Api.GetControllerValue(405, getCurrent);
                 case "Hours":
-                    return RailworksAPI.GetControllerValue(406, getCurrent);
+                    return RailworksStatics.Api.GetControllerValue(406, getCurrent);
                 case "Minutes":
-                    return RailworksAPI.GetControllerValue(407, getCurrent);
+                    return RailworksStatics.Api.GetControllerValue(407, getCurrent);
                 case "Seconds":
-                    return RailworksAPI.GetControllerValue(408, getCurrent);
+                    return RailworksStatics.Api.GetControllerValue(408, getCurrent);
                 default:
                     throw new ArgumentException("unknown virtual controller");
             }

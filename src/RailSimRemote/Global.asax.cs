@@ -7,8 +7,6 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-using RailSimRemote.Models;
-
 namespace RailSimRemote
 {
     public class WebApiApplication : System.Web.HttpApplication

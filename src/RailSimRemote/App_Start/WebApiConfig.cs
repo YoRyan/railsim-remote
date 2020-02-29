@@ -16,7 +16,7 @@ namespace RailSimRemote
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "{controller}/{action}/{name}",
+                routeTemplate: "api/{controller}/{action}/{name}",
                 defaults: new { name = RouteParameter.Optional }
             );
 

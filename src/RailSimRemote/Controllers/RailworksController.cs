@@ -1,20 +1,20 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
-using System.Web.Http;
 
 using RailSimRemote.Models;
 
 namespace RailSimRemote.Controllers
 {
-    public class RailworksController : ApiController
+    public class RailworksController : Controller
     {
-        [ActionName("Loco")]
+        [Route("api/railworks/loco")]
         public LocoName GetLoco()
         {
             return RailworksStatics.GameData.GetLoco();
         }
 
-        [ActionName("Controls")]
+        [Route("api/railworks/controls")]
         public Dictionary<string, BriefControlDescription> GetControls()
         {
             var result = new Dictionary<string, BriefControlDescription>();
@@ -30,20 +30,20 @@ namespace RailSimRemote.Controllers
         }
 
         [HttpGet]
-        [ActionName("Control")]
+        [Route("api/railworks/control")]
         public float GetControl(string name)
         {
             return RailworksStatics.GameData.GetControlValue(name);
         }
 
         [HttpPut]
-        [ActionName("Control")]
+        [Route("api/railworks/control")]
         public void PutControl(string name, float value)
         {
             RailworksStatics.GameData.SetControlValue(name, value);
         }
 
-        [ActionName("Virtual")]
+        [Route("api/railworks/virtual")]
         public float GetVirtualControl(string name)
         {
             const int getCurrent = (int)RailworksAPIGetType.Current;

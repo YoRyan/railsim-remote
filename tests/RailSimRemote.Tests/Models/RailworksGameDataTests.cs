@@ -1,30 +1,31 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Xunit;
 
-namespace RailSimRemote.Models.Tests
+using RailSimRemote.Models;
+
+namespace RailSimRemote.Tests.Models
 {
-    [TestClass()]
     public class RailworksGameDataTests
     {
-        [TestMethod()]
+        [Fact]
         public void Get_Invalid_Loco()
         {
             RailworksAPIMock mock = new RailworksAPIMock("Bad.:.LocoName");
             RailworksGameData gameData = new RailworksGameData(mock);
             LocoName loco = gameData.GetLoco();
-            Assert.AreEqual(loco.Provider, "");
-            Assert.AreEqual(loco.Product, "");
-            Assert.AreEqual(loco.Engine, "");
+            Assert.Equal("", loco.Provider);
+            Assert.Equal("", loco.Product);
+            Assert.Equal("", loco.Engine);
         }
 
-        [TestMethod()]
+        [Fact]
         public void Get_Valid_Loco()
         {
             RailworksAPIMock mock = new RailworksAPIMock("Provider..:.:Product..:.Engine:");
             RailworksGameData gameData = new RailworksGameData(mock);
             LocoName loco = gameData.GetLoco();
-            Assert.AreEqual(loco.Provider, "Provider.");
-            Assert.AreEqual(loco.Product, ":Product.");
-            Assert.AreEqual(loco.Engine, "Engine:");
+            Assert.Equal("Provider.", loco.Provider);
+            Assert.Equal(":Product.", loco.Product);
+            Assert.Equal("Engine:", loco.Engine);
         }
     }
 }

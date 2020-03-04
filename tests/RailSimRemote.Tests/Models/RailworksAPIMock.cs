@@ -1,4 +1,6 @@
-﻿namespace RailSimRemote.Models.Tests
+﻿using RailSimRemote.Models;
+
+namespace RailSimRemote.Tests.Models
 {
     class RailworksAPIMock : IRailworksAPI
     {
@@ -40,6 +42,6 @@
             ControlValues[controllerId] = value;
         }
 
-        public void SetRailDriverConnected(bool connected) {}
+        public void SetRailDriverConnected(bool connected) { }
     }
 }

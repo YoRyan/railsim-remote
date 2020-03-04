@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "RailSimRemote": {
+      "commandName": "Project",
+      "workingDirectory": "$(ProjectDir)"
+    }
+  }
+}

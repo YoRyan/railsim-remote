@@ -30,20 +30,20 @@ namespace RailSimRemote.Controllers
         }
 
         [HttpGet]
-        [Route("api/railworks/control")]
+        [Route("api/railworks/control/{name}")]
         public float GetControl(string name)
         {
             return RailworksStatics.GameData.GetControlValue(name);
         }
 
         [HttpPut]
-        [Route("api/railworks/control")]
+        [Route("api/railworks/control/{name}")]
         public void PutControl(string name, float value)
         {
             RailworksStatics.GameData.SetControlValue(name, value);
         }
 
-        [Route("api/railworks/virtual")]
+        [Route("api/railworks/virtual/{name}")]
         public float GetVirtualControl(string name)
         {
             const int getCurrent = (int)RailworksAPIGetType.Current;

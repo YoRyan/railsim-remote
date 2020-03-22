@@ -36,10 +36,10 @@ parameter.
 | GET | api/railworks/loco | Read the provider, product, and name of the current locomotive. Controls are guaranteed to be stable so long as this value remains constant. |
 | GET | api/railworks/controls | Enumerate all of the controls available for the current locomotive. |
 | GET | api/railworks/control/<Name> | Get the current value of the named control. |
-| PUT | api/railworks/control/<Name>?value=<v> | Set the current value of the named control to *v*. |
+| PUT | api/railworks/control/<Name>?value=v | Set the current value of the named control to *v*. |
 | GET | api/railworks/virtual/<Name> | Get the current value of one of the virtual controls, where *Name* is one of identifiers listed below. |
 
-| name | meaning |
+| virtual control name | meaning |
 | --- | --- |
 | Latitude | Current latitude. |
 | Longitude | Current longitude. |

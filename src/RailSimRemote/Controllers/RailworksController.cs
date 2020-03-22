@@ -46,30 +46,20 @@ namespace RailSimRemote.Controllers
         [Route("api/railworks/virtual/{name}")]
         public float GetVirtualControl(string name)
         {
-            const int getCurrent = (int)RailworksAPIGetType.Current;
-            switch (name)
+            var controls = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
             {
-                case "Latitude":
-                    return RailworksStatics.Api.GetControllerValue(400, getCurrent);
-                case "Longitude":
-                    return RailworksStatics.Api.GetControllerValue(401, getCurrent);
-                case "Fuel":
-                    return RailworksStatics.Api.GetControllerValue(402, getCurrent);
-                case "Tunnel":
-                    return RailworksStatics.Api.GetControllerValue(403, getCurrent);
-                case "Gradient":
-                    return RailworksStatics.Api.GetControllerValue(404, getCurrent);
-                case "Heading":
-                    return RailworksStatics.Api.GetControllerValue(405, getCurrent);
-                case "Hours":
-                    return RailworksStatics.Api.GetControllerValue(406, getCurrent);
-                case "Minutes":
-                    return RailworksStatics.Api.GetControllerValue(407, getCurrent);
-                case "Seconds":
-                    return RailworksStatics.Api.GetControllerValue(408, getCurrent);
-                default:
-                    throw new ArgumentException("unknown virtual controller");
-            }
+                { "Latitude", 400 },
+                { "Longitude", 401 },
+                { "Fuel", 402 },
+                { "Tunnel", 403 },
+                { "Gradient", 404 },
+                { "Heading", 405 },
+                { "Hours", 406 },
+                { "Minutes", 407 },
+                { "Seconds", 408 }
+            };
+            return RailworksStatics.Api.GetControllerValue(
+                controls[name], (int)RailworksAPIGetType.Current);
         }
     }
 }

@@ -8,7 +8,8 @@ namespace RailSimRemote.Models
         private IRailworksAPI api;
         private string locoString = "";
         private LocoName loco = new LocoName("");
-        private Dictionary<string, ControlDescription> controls = new Dictionary<string, ControlDescription>();
+        private Dictionary<string, ControlDescription> controls = new Dictionary<string, ControlDescription>(
+            StringComparer.OrdinalIgnoreCase);
         private readonly object mutex = new object();
 
         public RailworksGameData(IRailworksAPI api)

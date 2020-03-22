@@ -28,3 +28,25 @@ of previous similar projects. So, why create yet another one?
 The server serves files out of `.\wwwroot` and by default listens on
 `http://localhost:8888`. You can change the latter with the `--urls <URL(s)>`
 parameter.
+
+### API
+
+| method | path | description |
+| --- | --- | --- |
+| GET | api/railworks/loco | Read the provider, product, and name of the current locomotive. Controls are guaranteed to be stable so long as this value remains constant. |
+| GET | api/railworks/controls | Enumerate all of the controls available for the current locomotive. |
+| GET | api/railworks/control/<Name> | Get the current value of the named control. |
+| PUT | api/railworks/control/<Name>?value=<v> | Set the current value of the named control to *v*. |
+| GET | api/railworks/virtual/<Name> | Get the current value of one of the virtual controls, where *Name* is one of identifiers listed below. |
+
+| name | meaning |
+| --- | --- |
+| Latitude | Current latitude. |
+| Longitude | Current longitude. |
+| Fuel | Current fuel level (absolute value). |
+| Tunnel | Is train inside tunnel, 1 for yes, 0 for no. |
+| Gradient | Current track gradient. |
+| Heading | Current bearing. |
+| Hours | Current time, hours. |
+| Minutes | Current time, minutes. |
+| Seconds | Current time, seconds. |
